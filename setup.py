@@ -52,6 +52,7 @@ setup(
     packages=['wixpy'],
     package_dir={'wixpy': 'src/wixpy'},
     scripts=scripts,
+    install_requires=['distro>=1.5.0'],
 )
 
 if 'install' in sys.argv and not IS_MSW:
