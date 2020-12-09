@@ -75,7 +75,7 @@ MARKERS = {
 
 class SystemFacts(object):
     def __init__(self):
-        self.family, self.version = platform.dist()[:2]
+        self.family, self.version = distro.linux_distribution()[:2]
 
         # Workaround for Leap 15.0 bug
         if not self.family and not self.version:
