@@ -44,7 +44,7 @@ setup(
     maintainer=wixpy.MAINTAINER,
     maintainer_email=wixpy.MAINTAINER_EMAIL,
     license=wixpy.LICENSE,
-    install_requires=['distro'],
+    install_requires=['distro>=1.5.0'],
     url=wixpy.URL,
     download_url=wixpy.DOWNLOAD_URL,
     long_description=wixpy.LONG_DESCRIPTION,
