@@ -45,6 +45,7 @@ setup(
     maintainer_email=wixpy.MAINTAINER_EMAIL,
     license=wixpy.LICENSE,
     install_requires=['distro>=1.5.0'],
+    setup_requires=['distro>=1.5.0'],
     url=wixpy.URL,
     download_url=wixpy.DOWNLOAD_URL,
     long_description=wixpy.LONG_DESCRIPTION,
@@ -54,7 +55,6 @@ setup(
     scripts=scripts,
 )
 
-import dependencies
-
 if 'install' in sys.argv and not IS_MSW:
+    import dependencies
     dependencies.install()
