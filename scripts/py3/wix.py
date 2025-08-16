@@ -22,7 +22,8 @@ import os
 import sys
 
 if os.name == 'nt':
-    current_path = os.path.dirname(sys.argv[0])
+    current_path = os.path.dirname(sys.executable if hasattr(sys, 'frozen')
+                                   else sys.argv[0])
     stdlib = os.path.join(current_path, 'stdlib')
     if os.path.exists(stdlib):
         sys.path.insert(0, stdlib)
@@ -47,10 +48,15 @@ Available options:
  --output=FILE         Resulted MSI/WXS filename
  --xml_encoding=ENC    WXS content encoding. Default "utf-8"
  --json_encoding=ENC   JSON content encoding. Default "utf-8"
+ --generate_guid       Generate random GUID
 '''
 
 if '--help' in sys.argv or '-help' in sys.argv or len(sys.argv) == 1:
     print(HELP_TEMPLATE % (wixpy.PROJECT, wixpy.VERSION))
+    sys.exit(0)
+
+if '--generate_guid' in sys.argv:
+    print(wixpy.utils.get_guid())
     sys.exit(0)
 
 options = [item for item in sys.argv if item.startswith('--')]
